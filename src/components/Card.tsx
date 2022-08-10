@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Country } from "../interfaces/countryInterface";
 
 interface props {
@@ -5,23 +6,21 @@ interface props {
 }
 
 const Card = ({ country }: props) => {
+
     return (
-        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-            <img className="w-full" src={country.flags.png} alt="country image" />
-            <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{country.name.common}</div>
-                <ul>
-                    <li><span className="text-gray-800 font-bold">Population: </span>{country.population.toLocaleString()}</li>
-                    <li><span className="text-gray-800 font-bold">Region: </span>{country.region}</li>
-                    <li><span className="text-gray-800 font-bold">Capital: </span>{country.capital}</li>
-                </ul>
+        <Link to={`/details?country=${country.name.common}`} state={country}>
+            <div className="shadow-lg min-h-full">
+                <img className="w-full rounded" src={country.flags.png} alt="country image" />
+                <div className="px-6 py-4">
+                    <p className="font-bold text-xl mb-2">{country.name.common}</p>
+                    <ul>
+                        <li><span className="text-gray-800 font-bold">Population: </span>{country.population.toLocaleString()}</li>
+                        <li><span className="text-gray-800 font-bold">Region: </span>{country.region}</li>
+                        <li><span className="text-gray-800 font-bold">Capital: </span>{country.capital}</li>
+                    </ul>
+                </div>
             </div>
-            {/* <div className="px-6 pt-4 pb-2">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-            </div> */}
-        </div>
+        </Link>
     );
 }
 

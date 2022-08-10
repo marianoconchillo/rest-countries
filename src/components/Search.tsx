@@ -3,7 +3,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Search = () => {
     return (
-        <div className="p-6 md:px-14">
+        <div className="py-8">
             <label className="relative block md:w-1/3">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
