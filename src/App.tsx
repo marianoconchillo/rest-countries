@@ -15,7 +15,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <div className="container px-6 mx-auto">
+      <div className="px-10 mx-auto">
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="details" element={<DetailScreen />} />

@@ -23,33 +23,34 @@ const DetailScreen = () => {
                 </Link>
             </div>
 
-            <div className="py-6 sm:py-0">
-                <div className="sm:grid sm:grid-cols-6">
-                    <img className="w-full rounded" src={country.flags.png} alt="country" />
-                    <>
-                        <p className="font-extrabold text-3xl my-8 text-gray-800">{country.name.common}</p>
-                        <div className="my-5 sm:my-0">
+            <div className="py-6 md:grid md:grid-cols-2 md:gap-x-12 lg:gap-x-6">
+                <img className="rounded min-h-full" src={country.flags.png} alt="country" />
+
+                <div className="lg:flex lg:flex-col lg:justify-between lg:py-4 lg:mr-12">
+                    <p className="font-extrabold text-3xl my-8 text-gray-800 lg:my-0">{country.name.common}</p>
+                    <div className="lg:flex lg:justify-between">
+                        <div className="my-5">
                             <p><span className="font-semibold text-gray-900">Native Name: </span>{nativeName}</p>
                             <p><span className="font-semibold text-gray-900">Population: </span>{country.population.toLocaleString()}</p>
                             <p><span className="font-semibold text-gray-900">Region: </span>{country.region}</p>
                             <p><span className="font-semibold text-gray-900">Sub Region: </span>{country.subregion}</p>
                             <p><span className="font-semibold text-gray-900">Capital: </span>{country.capital}</p>
                         </div>
-                        <div className="my-5 sm:my-0">
+                        <div className="my-5">
                             <p><span className="font-semibold text-gray-900">Currency: </span>{currencies}</p>
                             <p><span className="font-semibold text-gray-900">Languages: </span>{languages.map((lan, idx) => <span key={idx}> {lan}{idx < (languages.length - 1) && ","}</span>)}</p>
                         </div>
-                        <div>
-                            <p className="text-xl font-semibold text-gray-900">Border Countries:</p>
-                            <div className="flex my-3">
-                                {country.borders?.map((border, idx) => {
-                                    return (
-                                        <span key={idx} className="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{border}</span>
-                                    )
-                                })}
-                            </div>
+                    </div>
+                    <div>
+                        <p className="text-xl font-semibold text-gray-900 lg:inline">Border Countries:</p>
+                        <div className="flex my-3 lg:flex-row lg:inline lg:ml-4">
+                            {country.borders?.map((border, idx) => {
+                                return (
+                                    <span key={idx} className="inline-block bg-gray-200 rounded px-3 py-1 text-lg font-semibold text-gray-700 mr-2 mb-2">{border}</span>
+                                )
+                            })}
                         </div>
-                    </>
+                    </div>
                 </div>
             </div>
         </>

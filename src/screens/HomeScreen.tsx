@@ -16,7 +16,7 @@ const HomeScreen = () => {
             {isLoading ? (
                 <Loader />
             ) : (
-                <div className="grid gap-y-5 sm:grid-cols-3 md:grid-cols-4 sm:gap-4 md:gap-8 justify-between">
+                <div className="grid gap-y-5 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
                     {
                         countries.map((country, idx) => {
                             return (
