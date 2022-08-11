@@ -13,6 +13,19 @@ const useCountries = () => {
         setIsLoading(false);
     };
 
+    const getCountriesByName = async (name: string) => {
+        try {
+            if (name !== "") {
+                const { data } = await restCountriesAPI.get<Country[]>(`/name/${name}`);
+                setCountries(data);
+            } else {
+                getCountries();
+            }
+        } catch (error) {
+            setCountries([]);
+        }
+    };
+
     useEffect(() => {
         getCountries();
     }, []);
@@ -20,6 +33,7 @@ const useCountries = () => {
     return {
         isLoading,
         countries,
+        getCountriesByName,
     }
 
 }
