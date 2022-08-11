@@ -1,4 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import BackButton from "../components/BackButton";
 import { Country } from "../interfaces/countryInterface";
 
 const DetailScreen = () => {
@@ -12,16 +13,8 @@ const DetailScreen = () => {
 
     return (
         <>
-            <div className="py-8">
-                <Link to={"/"}>
-                    <button className="flex items-center space-x-2 bg-white hover:bg-gray-100 text-gray-800 py-1 px-7 border border-gray-200 rounded shadow">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
-                        </svg>
-                        <span>Back</span>
-                    </button>
-                </Link>
-            </div>
+
+            <BackButton />
 
             <div className="py-6 md:grid md:grid-cols-2 md:gap-x-12 lg:gap-x-6">
                 <img className="rounded min-h-full" src={country.flags.png} alt="country" />

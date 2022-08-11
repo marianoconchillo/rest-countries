@@ -1,11 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
-// Hook
-import useCountries from "./hooks/useCountries";
-
 // Screens
 import HomeScreen from "./screens/HomeScreen";
 import DetailScreen from "./screens/DetailScreen";
+import ResultScreen from "./screens/ResultScreen";
 
 // Components 
 import Header from "./components/Header";
@@ -19,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="details" element={<DetailScreen />} />
+          <Route path="results" element={<ResultScreen />} />
         </Routes>
       </div>
     </>
