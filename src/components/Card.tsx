@@ -14,9 +14,9 @@ const Card = ({ country }: props) => {
                 <div className="px-6 py-4">
                     <p className="font-bold text-xl mb-2">{country.name.common}</p>
                     <ul>
-                        <li><span className="text-gray-800 font-bold">Population: </span>{country.population.toLocaleString()}</li>
-                        <li><span className="text-gray-800 font-bold">Region: </span>{country.region}</li>
-                        <li><span className="text-gray-800 font-bold">Capital: </span>{country.capital}</li>
+                        <li><span className="font-bold">Population: </span>{country.population.toLocaleString()}</li>
+                        <li><span className="font-bold">Region: </span>{country.region}</li>
+                        <li><span className="font-bold">Capital: </span>{country.capital}</li>
                     </ul>
                 </div>
             </div>

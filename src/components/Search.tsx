@@ -10,7 +10,6 @@ const Search = ({ getCountriesByName }: props) => {
 
     useEffect(() => {
         getCountriesByName(searchValue);
-        console.log("hola")
     }, [searchValue, getCountriesByName]);
 
     return (
