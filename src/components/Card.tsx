@@ -10,7 +10,7 @@ const Card = ({ country }: props) => {
     return (
         <Link to={`/details?country=${country.name.common}`} state={country}>
             <div className="shadow-lg min-h-full">
-                <img className="w-full rounded" src={country.flags.png} alt="country image" />
+                <img className="w-full rounded" src={country.flags.png} alt="country" />
                 <div className="px-6 py-4">
                     <p className="font-bold text-xl mb-2">{country.name.common}</p>
                     <ul>

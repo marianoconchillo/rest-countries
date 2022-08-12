@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Country } from "../interfaces/countryInterface";
+import { useCallback, useEffect, useState } from "react";
+import { Country, Region } from "../interfaces/countryInterface";
 import restCountriesAPI from "../api/restCountriesAPI";
 
 const useCountries = () => {
@@ -13,18 +13,28 @@ const useCountries = () => {
         setIsLoading(false);
     };
 
-    const getCountriesByName = async (name: string) => {
-        try {
-            if (name !== "") {
-                const { data } = await restCountriesAPI.get<Country[]>(`/name/${name}`);
-                setCountries(data);
-            } else {
-                getCountries();
+    const getCountriesByName = useCallback(
+        async (name: string) => {
+            const regex = /^[aA-zZ\s]+$/;
+            try {
+                if (name !== "" && regex.test(name)) {
+                    const { data } = await restCountriesAPI.get<Country[]>(`/name/${name}`);
+                    setCountries(data)
+                } else {
+                    getCountries();
+                }
+            } catch (error) {
+                setCountries([]);
             }
-        } catch (error) {
-            setCountries([]);
-        }
-    };
+        }, []
+    );
+
+
+    const getCountriesByRegion = async (region: Region) => {
+        const { data } = await restCountriesAPI.get<Country[]>(`/region/${region}`);
+        setCountries(data);
+    }
+
 
     useEffect(() => {
         getCountries();
@@ -34,6 +44,7 @@ const useCountries = () => {
         isLoading,
         countries,
         getCountriesByName,
+        getCountriesByRegion
     }
 
 }
