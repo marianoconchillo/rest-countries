@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import { Region } from "../interfaces/countryInterface";
 
 interface props {
@@ -7,6 +8,7 @@ interface props {
 
 const FilterByRegion = ({ getCountriesByRegion }: props) => {
 
+    const { theme: { navBackground } } = useContext(ThemeContext)
     const [region, setRegion] = useState<Region>();
 
     const handleChange = (e: any) => {
@@ -19,7 +21,8 @@ const FilterByRegion = ({ getCountriesByRegion }: props) => {
     return (
         <div>
             <select
-                className="border-darkGray bg-white py-3 px-4 rounded shadow focus:outline-none"
+                className="py-3 px-4 rounded shadow focus:outline-none"
+                style={{backgroundColor: navBackground}}
                 value={region}
                 onChange={handleChange}
             >

@@ -16,7 +16,7 @@ export const darkTheme: ThemeState = {
 export const lightTheme: ThemeState = {
     currentTheme: "light",
     background: "#fafafa" /* Light Mode Background */,
-    navBackground: "#fafafa" /* Navbar Background */,
+    navBackground: "#FFFFFF" /* Navbar Background */,
     text: "#111517" /* Light Mode Text */,
     elements: "#858585" /* Light Mode Input */,
 }
